@@ -37,7 +37,10 @@ public class LoginController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        HttpSession session = req.getSession();
+        if (session.getAttribute("userName") == null) {
+            resp.sendRedirect("WEB-INF/jsp/main.jsp");
+        } else {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         PrintWriter out = resp.getWriter();
@@ -49,7 +52,7 @@ public class LoginController extends HttpServlet{
 
             } else {
                 // Get session
-                HttpSession session = req.getSession();
+                session = req.getSession();
                 // Save the user name to the session
                 session.setAttribute("userName", login);
                 LOG.log(Level.INFO, "Succes login");
@@ -62,7 +65,7 @@ public class LoginController extends HttpServlet{
             LOG.log(Level.INFO, "Error");
 
         }
-        out.close();
+    }
     }
 
     private boolean checkPass(String _login, String _password, HttpServletResponse resp)

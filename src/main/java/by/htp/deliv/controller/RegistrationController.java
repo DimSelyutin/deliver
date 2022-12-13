@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import by.htp.deliv.connection.ConnectionPoolException;
 import by.htp.deliv.connection.PoolConnection;
 import by.htp.deliv.entity.User;
-import by.htp.deliv.exeption.ValidationException;
+import by.htp.deliv.exception.ValidationException;
 import by.htp.deliv.service.Validation;
 
 public class RegistrationController extends HttpServlet {
@@ -66,7 +66,6 @@ public class RegistrationController extends HttpServlet {
             out.println("Somthing went wrong :(");
         }
 
-        // out.close();
     }
 
     private boolean checkUserInBase(String _login) throws ConnectionPoolException, SQLException {

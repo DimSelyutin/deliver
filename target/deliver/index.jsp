@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8" taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 	<!DOCTYPE html>
 	<html>
 
@@ -26,9 +27,9 @@
 				<a href="">Pilars</a>
 			</div>
 			<% 
-				String formStyle="style=\" width: auto; display: grid; height: auto; align-content: center;\""; 
-				String buttonsSign="<div " + formStyle +" class=\"buttons_sign\"><button id=\"btn_signin\" onclick=\"changeJsp()\" type=\"submit\" class=\"btn_sign\">SighIn</button><button id=\"btn_sgnup\" onclick=\"changeJsp()\" type=\"submit\" class=\"btn_sign\">SighUp</button></div></form>";
-				String buttonsOut = "<form "+ formStyle +" action=\"Logout\" method=\"post\"><div class=\"buttons_sign\"><button type=\"submit\" class=\"btn_sign\">Log Out</button></div></form>";
+			String formStyle="style=\" width: auto; display: grid; height: auto; align-content: center;\""; 
+			String buttonsSign="<div " + formStyle +" class=\"buttons_sign\"><button id=\"btn_signin\" onclick=\"changeJsp()\" type=\"submit\" class=\"btn_sign\">SighIn</button><button id=\"btn_sgnup\" onclick=\"changeJsp()\" type=\"submit\" class=\"btn_sign\">SighUp</button></div></form>";
+			String buttonsOut = "<form "+ formStyle +" action=\"Logout\" method=\"post\"><div class=\"buttons_sign\"><button type=\"submit\" class=\"btn_sign\">Log Out</button></div></form>";
 
 			try{
 				if (!session.getAttribute("userName").equals("")) {
