@@ -1,9 +1,12 @@
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\service\ObjBuilder.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\service\serviceEnum\ExpressionEnum.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\entity\User.java
+E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\controller\LogoutController.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\security\JWTTokenProvider.java
+E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\controller\Controller.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\service\Validation.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\repository\UserRepository.java
+E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\entity\Post.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\connection\PoolConnection.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\repository\UserImpl.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\connection\Logger.java
@@ -12,7 +15,6 @@ E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\connection\DBResourceManager.
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\controller\LoginController.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\connection\DBParameter.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\App.java
-E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\controller\Logoutontroller.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\connection\ConnectionPoolException.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\controller\RegistrationController.java
 E:\GitHub\troll\deliver\src\main\java\by\htp\deliv\exception\ValidationException.java

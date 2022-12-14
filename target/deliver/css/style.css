@@ -5,6 +5,12 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+
+
+body {
+	width: 100%;
+	display: block;
+}
 .header {
 	display: flex;
     justify-content: space-around;
@@ -112,20 +118,11 @@ form>input {
 	cursor: pointer;
 
 }
-#btn_sgnup {
-	display: none;
-}
+
 .btn_sign:hover {
 	animation: btn 2s ease;
 }
 
-#jsp_login {
-	display: none;
-}
-
-#jsp_register {
-	display: flex;
-}
 
 @keyframes btn {
 	0% {    background: linear-gradient(45deg, #dd03e4, #5403fb);}
@@ -318,3 +315,79 @@ form>input {
 
 
   /* --------------------------------------------------------------------------------------- */
+
+  /* ----------------------------------------Blog-------------------------------------------- */
+
+.blog{
+	display: block;
+   
+    max-width: 70%;
+    margin: 0 auto;
+
+    border-radius: 15px;
+
+
+}
+
+
+.b_image {
+    min-height: 20%;
+	background-position: center;
+    background-size: 100%;
+	height: 60%;
+    width: 100%;
+    overflow: hidden;
+	transition: 1s ease;
+}
+
+
+
+
+.b_theme {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    height: 10%;
+    font-size: 1.005em;
+}
+.b_theme>a {
+	color: gray;
+}
+.b_theme>h2 {
+    text-transform: uppercase;
+}
+.b_text {
+	height: 30%;
+    display: block;
+	height: -webkit-fill-available;
+}
+
+.b_text_area{
+    display: block;
+    word-break: break-all;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 5px;
+    min-height: 50px;
+	height: 120px;
+}
+.b_text_area>p {
+	text-indent: 8px;
+
+}
+
+.b_post {
+    display: inline-block;
+    width: 30%;
+    height: 450px;
+    overflow: hidden;
+	margin: 20px;
+	box-shadow: 3px 3px 20px -10px;
+    border-radius: 5px;
+	cursor: pointer;
+}
+
+.b_post:hover .b_image {
+	background-size: 120%;
+}

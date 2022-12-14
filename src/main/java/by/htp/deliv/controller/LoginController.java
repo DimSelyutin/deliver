@@ -3,69 +3,79 @@ package by.htp.deliv.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.System.Logger.Level;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
 
 import by.htp.deliv.connection.ConnectionPoolException;
 import by.htp.deliv.connection.Logger;
 import by.htp.deliv.connection.PoolConnection;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
-public class LoginController extends HttpServlet{
+public class LoginController extends HttpServlet {
 
     public static final Logger LOG = new Logger();
-    
+
     public LoginController() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doGet(req, resp);
+        HttpSession session = req.getSession();
+
+        if (session.getAttribute("userName") != null) {
+            resp.sendRedirect("index.jsp");
+        } else {
+            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+         
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if (session.getAttribute("userName") == null) {
-            resp.sendRedirect("WEB-INF/jsp/main.jsp");
+
+        if (session.getAttribute("userName") != null) {
+            resp.sendRedirect("index.jsp");
         } else {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        PrintWriter out = resp.getWriter();
 
-        try {
-            if (!checkPass(login, password, resp)) {
+            String login = req.getParameter("login");
+            String password = req.getParameter("password");
+            PrintWriter out = resp.getWriter();
 
-               req.getRequestDispatcher("/").forward(req, resp);            //RequestDispatcher -> forward(req,resp)
+            try {
+                if (!checkPass(login, password, resp)) {
 
-            } else {
-                // Get session
-                session = req.getSession();
-                // Save the user name to the session
-                session.setAttribute("userName", login);
-                LOG.log(Level.INFO, "Succes login");
+                    req.getRequestDispatcher("index.jsp").forward(req, resp); // RequestDispatcher -> forward(req,resp)
 
-                req.getRequestDispatcher("/index.jsp").forward(req, resp);
+                } else {
+                    // Get session
+                    session = req.getSession();
+                    // Save the user name to the session
+                    session.setAttribute("userName", login);
+                    Cookie cookie = new Cookie("userName", login);
+
+                    
+                    resp.sendRedirect("index.jsp");
+
+                }
+            } catch (ConnectionPoolException | SQLException e) {
+
+                out.println(e);
+                LOG.log(Level.INFO, e.toString());
 
             }
-        } catch (ConnectionPoolException | SQLException e) {
-            out.println(e);
-            LOG.log(Level.INFO, "Error");
-
         }
-    }
     }
 
     private boolean checkPass(String _login, String _password, HttpServletResponse resp)
@@ -95,8 +105,4 @@ public class LoginController extends HttpServlet{
 
     }
 
-    
-
-
-    
 }

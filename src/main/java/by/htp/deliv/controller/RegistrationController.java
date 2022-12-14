@@ -16,6 +16,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import by.htp.deliv.connection.ConnectionPoolException;
 import by.htp.deliv.connection.PoolConnection;
 import by.htp.deliv.entity.User;
@@ -32,8 +33,15 @@ public class RegistrationController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doGet(req, resp);
+        HttpSession session = req.getSession();
+
+        if (session.getAttribute("userName") != null) {
+            resp.sendRedirect("index.jsp");
+        } else {
+            req.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(req, resp);
+         
+        }
+
     }
 
     @Override
